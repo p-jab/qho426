@@ -1,15 +1,17 @@
 import csv
-#stud_id = 1001
+stud_id = 1001
 #global variable -> visible to all functions
 
 def generate():
     name = input("Enter name: ")
     dob = input("Enter date of birth: ")
     age = int(input("Enter age"))
-    return name, dob, age
+    global stud_id
+    stud_id += 1
+    return name, dob, age, stud_id
 
 def saving(students=[], mode="a"):
-    with open("students.csv", mode) as f:
+    with open("students.csv", mode, newline="") as f:
         csv_writer = csv.writer(f)
         for bob in students:
             csv_writer.writerow(bob)
