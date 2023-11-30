@@ -3,23 +3,27 @@ def generate():
     mrk = float(input("Enter the mark: "))
     return name, mrk
 
+
 def list_of_std(n):
     stud_list = []
     for i in range(n):
         stud_list.append(generate())
     return stud_list
 
+
 def average(lista=[]):
     total = 0
     for item in lista:
         total += item[1]
-    avg = total/len(lista)
+    avg = total / len(lista)
     return avg
+
 
 def run():
     s_list = []
     while True:
-        opt = int(input("Menu:\n\n1-Populate list of Students\n2-Calculate AVG mark\n3-Change mark of one student\n4-Exit\nChoice: "))
+        opt = int(input(
+            "Menu:\n\n1-Populate list of Students\n2-Calculate AVG mark\n3-Change mark of one student\n4-Exit\nChoice: "))
         if opt == 4:
             break
         elif opt == 1:
@@ -33,10 +37,11 @@ def run():
                 if tup[0] == name:
                     n_mrk = float(input("Enter new mark: "))
                     s_list.remove(tup)
-                    #s_list.append((name, n_mrk))
+                    # s_list.append((name, n_mrk))
                     s_list.insert(0, (name, n_mrk))
-                    #break
+                    # break
         else:
             print("No such option, try again. Fool!")
+
 
 run()
